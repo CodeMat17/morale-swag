@@ -27,42 +27,42 @@ export default function Home() {
       <div className='p-8 mt-8 space-y-6 max-w-lg mx-auto'>
         <button
           onClick={() => router.push('/advice')}
-          className='shadow-lg flex items-center px-6 space-x-4 bg-emerald-200 w-full py-6 rounded-md'>
+          className='shadow-lg flex items-center px-4 space-x-4 bg-emerald-200 w-full py-4 rounded-md'>
           <FontAwesomeIcon
             icon={faHandshakeSimple}
-            className='w-12 h-12 text-emerald-700'
+            className='w-10 h-10 text-emerald-700'
           />
-          <p className='font-semibold text-xl'>ADVICE</p>
+          <p className='font-semibold text-lg'>ADVICE</p>
         </button>
 
         <button
           onClick={() => router.push('/motivational-quotes')}
-          className='shadow-lg flex items-center px-6 space-x-4 bg-emerald-200 w-full py-6 rounded-md'>
+          className='shadow-lg flex items-center px-4 space-x-4 bg-emerald-200 w-full py-4 rounded-md'>
           <FontAwesomeIcon
             icon={faSeedling}
-            className='w-12 h-12 text-emerald-700'
+            className='w-10 h-10 text-emerald-700'
           />
-          <p className='font-semibold text-xl truncate'>MOTIVATIONAL QUOTES</p>
+          <p className='font-semibold text-lg truncate'>MOTIVATIONAL QUOTES</p>
         </button>
 
         <button
           onClick={() => router.push('/proverbs')}
-          className='shadow-lg flex items-center px-6 space-x-4 bg-emerald-200 w-full py-6 rounded-md'>
+          className='shadow-lg flex items-center px-4 space-x-4 bg-emerald-200 w-full py-4 rounded-md'>
           <FontAwesomeIcon
             icon={faBookOpenReader}
-            className='w-12 h-12 text-emerald-700'
+            className='w-10 h-10 text-emerald-700'
           />
-          <p className='font-semibold text-xl truncate'>PROVERBS</p>
+          <p className='font-semibold text-lg truncate'>PROVERBS</p>
         </button>
 
         <button
           onClick={() => router.push('/bible-quotation')}
-          className='shadow-lg flex items-center px-6 space-x-4 bg-emerald-200 w-full py-6 rounded-md'>
+          className='shadow-lg flex items-center px-4 space-x-4 bg-emerald-200 w-full py-4 rounded-md'>
           <FontAwesomeIcon
             icon={faBookBible}
-            className='w-12 h-12 text-emerald-700'
+            className='w-10 h-10 text-emerald-700'
           />
-          <p className='font-semibold text-xl truncate'>BIBLE QUOTATIONS</p>
+          <p className='font-semibold text-lg truncate'>BIBLE QUOTATIONS</p>
         </button>
       </div>
     </div>
