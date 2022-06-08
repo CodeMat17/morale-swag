@@ -29,7 +29,7 @@ function MotivationalPage() {
     const res = await fetch(
       `${
         process.env.NEXT_PUBLIC_STRAPI_API
-      }/api/motivational-quotes/${getRandomInt(18)}`
+      }/api/motivational-quotes/${getRandomInt(38)}`
     );
     const response = await res.json();
 
