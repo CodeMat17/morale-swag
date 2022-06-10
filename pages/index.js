@@ -54,16 +54,6 @@ export default function Home() {
           />
           <p className='font-semibold text-lg truncate'>PROVERBS</p>
         </button>
-
-        <button
-          onClick={() => router.push('/bible-quotation')}
-          className='shadow-lg flex items-center px-4 space-x-4 bg-emerald-200 w-full py-4 rounded-md'>
-          <FontAwesomeIcon
-            icon={faBookBible}
-            className='w-10 h-10 text-emerald-700'
-          />
-          <p className='font-semibold text-lg truncate'>BIBLE QUOTATIONS</p>
-        </button>
       </div>
     </div>
   );
