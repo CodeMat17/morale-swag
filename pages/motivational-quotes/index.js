@@ -10,26 +10,26 @@ function MotivationalPage() {
   );
   const [author, setAuthor] = useState('Arthur Ashe');
 
-  const fetchMotivational = async () => {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_STRAPI_API}/api/${getRandomInt(4)}`
-    );
-    const response = await res.json();
+  // const fetchMotivational = async () => {
+  //   const res = await fetch(
+  //     `${process.env.NEXT_PUBLIC_STRAPI_API}/api/${getRandomInt(4)}`
+  //   );
+  //   const response = await res.json();
 
-    setAuthor(response.attributes.author);
-    setMotivationalText(response.attributes.text);
-  };
+  //   setAuthor(response.attributes.author);
+  //   setMotivationalText(response.attributes.text);
+  // };
 
   const handleMotivationalQuotes = async () => {
     setLoading(true);
-    function getRandomInt(max) {
-      return Math.floor(Math.random() * max + 1);
-    }
+     function getRandomInt(min, max) {
+       return Math.floor(Math.random() * (max - min + 1) + min);
+     }
 
     const res = await fetch(
       `${
         process.env.NEXT_PUBLIC_STRAPI_API
-      }/api/motivational-quotes/${getRandomInt(243)}`
+      }/api/motivational-quotes/${getRandomInt(1, 243)}`
     );
     const response = await res.json();
 
