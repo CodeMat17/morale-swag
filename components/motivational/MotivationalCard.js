@@ -13,7 +13,7 @@ function MotivationalCard({
       <FontAwesomeIcon icon={faStar} className='w-8 h-8 text-emerald-400' />
       <div className='text-lg md:text-2xl font-semibold text-gray-300 leading-8 text-center mt-4'>
         &quot;{motivationalText}&quot;
-        <p> - {author}</p>
+        <p className='text-xl font-semibold'> - {author}</p>
       </div>
       <hr className='w-[300px] border-t-1 border-gray-500 mt-8 bottom-16 mx-auto' />
       <div className='absolute -bottom-[30px] mx-aut right-8 '>

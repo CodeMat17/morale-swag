@@ -4,32 +4,23 @@ import NavHeader from '../../components/nav/NavHeader';
 
 function MotivationalPage() {
   const [isLoading, setLoading] = useState(false);
+  const [indexNo, setIndexNo] = useState(1);
 
   const [motivationalText, setMotivationalText] = useState(
     'Start where you are. Use what you have. Do what you can.'
   );
   const [author, setAuthor] = useState('Arthur Ashe');
 
-  // const fetchMotivational = async () => {
-  //   const res = await fetch(
-  //     `${process.env.NEXT_PUBLIC_STRAPI_API}/api/${getRandomInt(4)}`
-  //   );
-  //   const response = await res.json();
-
-  //   setAuthor(response.attributes.author);
-  //   setMotivationalText(response.attributes.text);
-  // };
-
   const handleMotivationalQuotes = async () => {
     setLoading(true);
-     function getRandomInt(min, max) {
-       return Math.floor(Math.random() * (max - min + 1) + min);
-     }
+    function getRandomInt(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) + min);
+    }
+
+    setIndexNo(Math.floor(Math.random() * (211 - 1 + 1) + 1));
 
     const res = await fetch(
-      `${
-        process.env.NEXT_PUBLIC_STRAPI_API
-      }/api/motivational-quotes/${getRandomInt(1, 243)}`
+      `${process.env.NEXT_PUBLIC_STRAPI_API}/api/motivationals/${indexNo}`
     );
     const response = await res.json();
 
@@ -43,7 +34,7 @@ function MotivationalPage() {
       <NavHeader />
 
       <h1 className='text-center pt-12 text-emerald-200 font-bold text-2xl md:text-3xl tracking-wider'>
-       Get motivated
+        Get motivated
       </h1>
       <div className='flex justify-center'>
         <MotivationalCard
