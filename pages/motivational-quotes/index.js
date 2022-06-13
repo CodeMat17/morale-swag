@@ -1,17 +1,17 @@
 import { useState } from 'react';
-import MotivationalCard from '../../components/motivational/MotivationalCard';
+import Card from '../../components/Card';
 import NavHeader from '../../components/nav/NavHeader';
 
 function MotivationalPage() {
   const [isLoading, setLoading] = useState(false);
   const [indexNo, setIndexNo] = useState(1);
 
-  const [motivationalText, setMotivationalText] = useState(
+  const [quoteText, setQuoteText] = useState(
     'Start where you are. Use what you have. Do what you can.'
   );
-  const [author, setAuthor] = useState('Arthur Ashe');
+  const [quoteAuthor, setQuoteAuthor] = useState('Arthur Ashe');
 
-  const handleMotivationalQuotes = async () => {
+  const handleQuotes = async () => {
     setLoading(true);
     function getRandomInt(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min);
@@ -24,8 +24,8 @@ function MotivationalPage() {
     );
     const response = await res.json();
 
-    setAuthor(response.data.attributes.author);
-    setMotivationalText(response.data.attributes.text);
+    setQuoteAuthor(response.data.attributes.author);
+    setQuoteText(response.data.attributes.text);
     setLoading(false);
   };
 
@@ -37,11 +37,11 @@ function MotivationalPage() {
         Get motivated
       </h1>
       <div className='flex justify-center'>
-        <MotivationalCard
+        <Card
           isLoading={isLoading}
-          author={author}
-          motivationalText={motivationalText}
-          handleMotivationalQuotes={handleMotivationalQuotes}
+          quoteAuthor={quoteAuthor}
+          quoteText={quoteText}
+          handleQuotes={handleQuotes}
         />
       </div>
     </div>
