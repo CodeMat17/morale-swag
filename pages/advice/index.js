@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import AdviceCard from '../../components/advice/AdviceCard';
 import Card from '../../components/Card';
 import NavHeader from '../../components/nav/NavHeader';
 
@@ -25,7 +24,7 @@ function AdvicePage() {
   return (
     <div className=' flex flex-col justify-center'>
       <NavHeader />
-     
+
       <h1 className='text-center pt-12 text-emerald-200 font-bold text-2xl md:text-3xl tracking-wider'>
         Take an advice
       </h1>
