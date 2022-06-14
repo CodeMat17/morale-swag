@@ -17,7 +17,7 @@ function MotivationalPage() {
       return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
-    setIndexNo(Math.floor(Math.random() * (36 - 1 + 1) + 1));
+    setIndexNo(Math.floor(Math.random() * (49 - 1 + 1) + 1));
 
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_STRAPI_API}/api/proverbs/${indexNo}`
