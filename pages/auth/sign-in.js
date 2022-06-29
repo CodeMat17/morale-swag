@@ -16,7 +16,7 @@ function SingIn() {
   const onSubmit = async (e) => {
     e.preventDefault();
     setWaiting(true);
-    axios
+   await axios
       .post(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/auth/local`, {
         identifier,
         password,

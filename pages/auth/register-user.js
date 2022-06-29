@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { useRouter } from 'next/router';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import toast from 'react-hot-toast';
-import AuthContext from '../../context/auth';
 
 function RegisterUser() {
   // const { username, userEmail, userJWT } = useContext(AuthContext);
@@ -26,7 +25,7 @@ function RegisterUser() {
       toast.error('Your password confirmation does not match');
       return;
     } else {
-      axios
+      await axios
         .post(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/auth/local/register`, {
           username,
           email,
@@ -66,7 +65,6 @@ function RegisterUser() {
         Register {username}
       </h2>
       <div className='py-8'>
-      
         <form onSubmit={registerUser} className='space-y-4'>
           <input
             type='text'
