@@ -47,7 +47,7 @@ function MotivationalPage() {
     <div className='flex flex-col justify-center'>
       <NavHeader />
 
-      {userJWT ? (
+      {userJWT && (
         <>
           {!userSubscription ? (
             <div className='px-8 pt-12'>
@@ -83,15 +83,17 @@ function MotivationalPage() {
             </>
           )}
         </>
-      ) : (
-        <div className='flex justify-center pt-20'>
-          <button
-            onClick={() => router.push('/auth/sign-in')}
-            className='bg-gray-300 px-6 py-3 rounded-md font-semibold text-lg tracking-widest'>
-            SIGN IN
-          </button>
-        </div>
-      )}
+      )
+      //   : (
+      //   <div className='flex justify-center pt-20'>
+      //     <button
+      //       onClick={() => router.push('/auth/sign-in')}
+      //       className='bg-gray-300 px-6 py-3 rounded-md font-semibold text-lg tracking-widest'>
+      //       SIGN IN
+      //     </button>
+      //   </div>
+      // )
+      }
     </div>
   );
 }
