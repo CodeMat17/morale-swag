@@ -1,8 +1,21 @@
-import { useState } from 'react';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
+import { useState, useEffect, useContext } from 'react';
 import Card from '../../components/Card';
 import NavHeader from '../../components/nav/NavHeader';
+import AuthContext from '../../context/auth';
 
 function MotivationalPage() {
+  const { userJWT } = useContext(AuthContext);
+  
+  const router = useRouter();
+
+  useEffect(() => {
+    if (userJWT == null) {
+      router.push('/auth/sign-in');
+    }
+  }, [userJWT, router]);
+
   const [isLoading, setLoading] = useState(false);
   const [indexNo, setIndexNo] = useState(1);
 
