@@ -5,7 +5,7 @@ const AuthContext = createContext();
 export function AuthProvider({ children }) {
   const [userEmail, setUserEmail] = useState('');
   const [userName, setUserName] = useState('');
-  const [userJWT, setUserJWT] = useState('');
+  const [userJWT, setUserJWT] = useState(null);
   const [userSubscription, setSubscription] = useState(null);
 
   return (
