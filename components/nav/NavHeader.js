@@ -1,8 +1,10 @@
+import { signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useContext } from 'react';
 import AuthContext from '../../context/auth';
 
 function NavHeader() {
+  const { data: session } = useSession();
   const router = useRouter();
   const {
     userJWT,
@@ -13,35 +15,30 @@ function NavHeader() {
     setUserName,
   } = useContext(AuthContext);
 
-  const signOut = () => {
-    setUserJWT(null);
-    setUserEmail('');
-    setUserName('');
-  };
-
   return (
     <nav className='sticky top-0 z-50 bg-gray-800 shadow px-4 md:px-8'>
-      <div className='px-4 pt-4 pb-1 flex items-center justify-between'>
+      <div className='p-4 flex items-center justify-between'>
         <h1 className='text-white font-semibold text-xl tracking-wider'>
           MORALE SWAG
         </h1>
         <div className='space-x-4'>
           <button
             onClick={() => router.push('/')}
-            className='text-emerald-400 text-lg font-semibold tracking-wide'>
+            className='text-lime-500 text-lg font-semibold tracking-wide'>
             Home
           </button>
         </div>
       </div>
-      {userJWT && (
-        <div className='flex justify-between items-center px-4 text-gray-300'>
-          <div>
-            <p>Welcome {userName} !</p>
-            <p>{userEmail}</p>
+      {session && (
+        <div className='flex justify-between items-center px-4 pb-4 space-x-2'>
+          <div className='truncate'>
+            <p className='tracking-wider text-sm text-gray-300'>
+              Welcome! {userName}
+            </p>
           </div>
           <button
             onClick={signOut}
-            className='text-emerald-400 text-lg font-semibold tracking-wide'>
+            className='bg-red-200 rounded-full px-2 py-2 text-red-600 font-semibold tracking-wide'>
             Sign out
           </button>
         </div>

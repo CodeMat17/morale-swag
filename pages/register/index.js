@@ -2,66 +2,66 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
 import toast from 'react-hot-toast';
+import Register from '../../components/auth/Register';
 
 function RegisterUser() {
   // const { username, userEmail, userJWT } = useContext(AuthContext);
 
-  const router = useRouter();
+  // const router = useRouter();
 
-  const [isRegistering, setRegistering] = useState(false);
-  const [username, setUsername] = useState('');
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [cpassword, setCPassword] = useState('');
+  // const [isRegistering, setRegistering] = useState(false);
+  // const [username, setUsername] = useState('');
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
+  // const [cpassword, setCPassword] = useState('');
 
-  const [errorMsg, setErrorMsg] = useState('');
+  // const registerUser = async (e) => {
+  //   e.preventDefault();
+  //   setRegistering(true);
 
-  const registerUser = async (e) => {
-    e.preventDefault();
-    setRegistering(true);
-
-    if (password != cpassword) {
-      setRegistering(false);
-      toast.error('Your password confirmation does not match');
-      return;
-    } else {
-      await axios
-        .post(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/auth/local/register`, {
-          username,
-          email,
-          password,
-        })
-        .then((response) => {
-          toast.success(
-            `${response.data.user.username} is successfully registered.`,
-            {
-              duration: 4000,
-              position: 'top-center',
-            }
-          );
-          setRegistering(false);
-          setUsername('');
-          setEmail('');
-          setPassword('');
-          router.push('/auth/sign-in');
-          // console.log('Well done!');
-          // console.log('User profile', response.data.user);
-          // console.log('User token', response.data.jwt);
-        })
-        .catch((error) => {
-          setRegistering(false);
-          console.log(error.response);
-          toast.error(error.response.data.error.message, {
-            duration: 4000,
-            position: 'top-center',
-          });
-        });
-    }
-  };
+  //   if (password != cpassword) {
+  //     setRegistering(false);
+  //     toast.error('Your password confirmation does not match');
+  //     return;
+  //   } else {
+  //     await axios
+  //       .post(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/auth/local/register`, {
+  //         username,
+  //         email,
+  //         password,
+  //       })
+  //       .then((response) => {
+  //         toast.success(
+  //           `${response.data.user.username} is successfully registered.`,
+  //           {
+  //             duration: 4000,
+  //             position: 'top-center',
+  //           }
+  //         );
+  //         setRegistering(false);
+  //         setUsername('');
+  //         setEmail('');
+  //         setPassword('');
+  //         router.push('/auth/sign-in');
+  //         // console.log('Well done!');
+  //         // console.log('User profile', response.data.user);
+  //         // console.log('User token', response.data.jwt);
+  //       })
+  //       .catch((error) => {
+  //         setRegistering(false);
+  //         console.log(error.response);
+  //         toast.error(error.response.data.error.message, {
+  //           duration: 4000,
+  //           position: 'top-center',
+  //         });
+  //       });
+  //   }
+  // };
 
   return (
-    <div className='p-8'>
-      <h2 className='text-2xl font-semibold text-white tracking-wider'>
+    <div className='px-8 py-20'>
+      <Register />
+      {/* <h2 className='text-2xl font-semibold text-white tracking-wider'>
         Register {username}
       </h2>
       <div className='py-8'>
@@ -121,7 +121,7 @@ function RegisterUser() {
             </button>
           </div>
         </form>
-      </div>
+      </div> */}
     </div>
   );
 }
