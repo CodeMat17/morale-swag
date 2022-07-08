@@ -2,20 +2,19 @@ import axios from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import NavHeader from '../../components/nav/NavHeader';
 
 function Register() {
   const router = useRouter();
 
-  const {
-    register,
-    handleSubmit,
-    watch,
-    reset,
-    formState: { errors },
-  } = useForm();
+//   const {
+//     register,
+//     handleSubmit,
+//     watch,
+//     reset,
+//     formState: { errors },
+//   } = useForm();
 //   const password = {};
 //     password.current = watch('password', '');
     
