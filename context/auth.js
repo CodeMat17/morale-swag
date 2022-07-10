@@ -8,19 +8,8 @@ export function AuthProvider({ children }) {
   const [userEmail, setUserEmail] = useState('');
   const [userName, setUserName] = useState('');
   const [userJWT, setUserJWT] = useState(null);
-  const [userSubscription, setSubscription] = useState(null);
-
-  // async function doRegister(values) {
-  //   try {
-  //     const resp = await axios.post(
-  //       `${NEXT_PUBLIC_STARPI_URL}/api/auth/register`,
-  //       values
-  //     );
-  //     return ['OK', resp.data.message];
-  //   } catch (error) {
-  //     return ['alert', error.response.data.message];
-  //   }
-  // }
+  const [userSubscription, setSubscription] = useState(false);
+  const [expiration, setExpiration] = useState(false);
 
   const userDetail = {
     userEmail: userEmail,
@@ -31,6 +20,8 @@ export function AuthProvider({ children }) {
     setUserJWT,
     userSubscription,
     setSubscription,
+    setExpiration,
+    expiration,
   };
 
   return (

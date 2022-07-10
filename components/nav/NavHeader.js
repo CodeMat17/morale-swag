@@ -1,7 +1,9 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { useContext } from 'react';
 import AuthContext from '../../context/auth';
+import {faHouse, faPowerOff} from '@fortawesome/free-solid-svg-icons'
 
 function NavHeader() {
   const { data: session } = useSession();
@@ -25,7 +27,7 @@ function NavHeader() {
           <button
             onClick={() => router.push('/')}
             className='text-lime-500 text-lg font-semibold tracking-wide'>
-            Home
+            <FontAwesomeIcon icon={faHouse} className='w-8 h-8' />
           </button>
         </div>
       </div>
@@ -38,8 +40,8 @@ function NavHeader() {
           </div>
           <button
             onClick={signOut}
-            className='bg-red-200 rounded-full px-2 py-2 text-red-600 font-semibold tracking-wide'>
-            Sign out
+            className='w-8 h-8 text-red-500'>
+            <FontAwesomeIcon icon={faPowerOff} className='w-8 h-8' />
           </button>
         </div>
       )}

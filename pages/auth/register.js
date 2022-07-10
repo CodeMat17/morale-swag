@@ -178,7 +178,7 @@ function Register() {
               </p>
               <div
                 onClick={popToast}
-                className='relative mt-3 w-[50px] h-[50px]'>
+                className='cursor-pointer relative mt-3 w-[50px] h-[50px]'>
                 <Image
                   alt='google link'
                   src='/google_logo.webp'

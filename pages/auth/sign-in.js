@@ -20,20 +20,21 @@ function SignIn() {
   const [isSubmitting, setSubmitting] = useState(false);
 
   const onSubmit = async (values) => {
-    try {
-      const { email, password } = values;
-      setSubmitting(true);
+    const { email, password } = values;
+    setSubmitting(true);
 
-      const result = await signIn('credentials', {
-        redirect: false,
-        email: email,
-        password: password,
-      });
+    const result = await signIn('credentials', {
+      redirect: false,
+      email: email,
+      password: password,
+    });
+    if (result.ok) {
       setSubmitting(false);
       toast.success('You have successfully signed in.');
       router.replace('/');
       reset();
-    } catch (error) {
+    }
+    if (!result.ok) {
       setSubmitting(false);
       toast.error('Invalid Credentials!');
     }
@@ -109,7 +110,7 @@ function SignIn() {
             <div className='h-0.5 w-full bg-gray-600'></div>
           </div>
 
-          <div className='flex items-center justify-evenly'>
+          <div className='flex items-center justify-between'>
             <div className='flex flex-col items-center'>
               <p className='text-center text-sm text-gray-300'>Are you new?</p>
               <button
@@ -127,7 +128,7 @@ function SignIn() {
               </p>
               <div
                 onClick={popToast}
-                className='relative mt-3 w-[50px] h-[50px]'>
+                className='cursor-pointer relative mt-3 w-[50px] h-[50px]'>
                 <Image
                   alt='google link'
                   src='/google_logo.webp'

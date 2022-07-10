@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { getSession } from 'next-auth/react';
+import { useState, useContext } from 'react';
 import Card from '../../components/Card';
 import NavHeader from '../../components/nav/NavHeader';
 
@@ -40,3 +41,19 @@ function AdvicePage() {
 }
 
 export default AdvicePage;
+
+export async function getServerSideProps(ctx) {
+  const session = await getSession(ctx);
+  // Check if session exists or not, if not, redirect
+  if (session == null) {
+    return {
+      redirect: {
+        destination: '/auth/sign-in',
+        permanent: true,
+      },
+    };
+  }
+  return {
+    props: {},
+  };
+}
