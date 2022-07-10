@@ -2,35 +2,32 @@ import axios from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import NavHeader from '../../components/nav/NavHeader';
 
 function Register() {
   const router = useRouter();
 
-//   const {
-//     register,
-//     handleSubmit,
-//     watch,
-//     reset,
-//     formState: { errors },
-//   } = useForm();
-//   const password = {};
-//     password.current = watch('password', '');
-    
-    const [username, setUsername] = useState('');
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('')
-     const [cpassword, setCPassword] = useState('');
+  const {
+    register,
+    handleSubmit,
+    watch,
+    reset,
+    formState: { errors },
+  } = useForm();
+  const password = {};
+  password.current = watch('password', '');
 
   const [isSubmitting, setSubmitting] = useState(false);
 
-    const handleSubmitt = async (e) => {
-        e.preventDefault();
-      
-    // const { username, email, password } = values;
+  const onSubmit = async (values) => {
+    // e.preventDefault();
+
+    const { username, email, password } = values;
+
     setSubmitting(true);
-     await axios
+    await axios
       .post(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/auth/local/register`, {
         // data: {
         username: username,
@@ -40,14 +37,19 @@ function Register() {
       })
       .then((response) => {
         setSubmitting(false);
-        toast.success('You have successfully registered!');
-        toast.success('You can login now.');
+        toast.success('You have successfully registered! You can login now.', {
+          duration: 5000,
+          position: 'top-center'
+        });
         router.push('/auth/sign-in');
         // reset();
       })
       .catch((error) => {
         setSubmitting(false);
-        toast.error(error.response.data.error.message);
+        toast.error(error.response.data.error.message, {
+          duration: 5000,
+          position: 'top-center'
+        });
       });
   };
 
@@ -61,23 +63,23 @@ function Register() {
 
       <div className='p-8 max-w-sm mx-auto'>
         <h1 className='font-semibold text-2xl text-white'>Register</h1>
-        <form onSubmit={handleSubmitt} className='py-6 space-y-4'>
+        <form onSubmit={handleSubmit(onSubmit)} className='py-6 space-y-4'>
           <div>
             <input
               type='text'
               id='username'
               name='username'
               placeholder='Enter your fullname'
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              //   {...register('username', {
-              //     required: 'Your fullname is required',
-              //   })}
+              // value={username}
+              // onChange={(e) => setUsername(e.target.value)}
+              {...register('username', {
+                required: 'Your fullname is required',
+              })}
               className='text-lime-600 w-full rounded-md px-4 py-3 outline-none'
             />
-            {/* {errors.username && (
+            {errors.username && (
               <p className='text-red-500'>{errors.username.message}</p>
-            )} */}
+            )}
           </div>
 
           <div>
@@ -86,18 +88,18 @@ function Register() {
               id='email'
               name='email'
               placeholder='Enter your email'
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            //   {...register('email', {
-            //     required: 'Email is required',
-            //     pattern:
-            //       /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-            //   })}
+              // value={email}
+              // onChange={(e) => setEmail(e.target.value)}
+              {...register('email', {
+                required: 'Email is required',
+                pattern:
+                  /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+              })}
               className='text-lime-600 w-full rounded-md px-4 py-3 outline-none'
             />
-            {/* {errors.email && (
+            {errors.email && (
               <p className='text-red-500'>{errors.email.message}</p>
-            )} */}
+            )}
           </div>
 
           <div>
@@ -106,20 +108,20 @@ function Register() {
               name='password'
               type='password'
               placeholder='Password is required'
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-            //   {...register('password', {
-            //     required: 'Please specify a password',
-            //     minLength: {
-            //       value: 8,
-            //       message: 'Password is a min. of 8 characters',
-            //     },
-            //   })}
+              // value={password}
+              // onChange={(e) => setPassword(e.target.value)}
+              {...register('password', {
+                required: 'Please specify a password',
+                minLength: {
+                  value: 8,
+                  message: 'Password is a min. of 8 characters',
+                },
+              })}
               className='text-lime-600 w-full rounded-md px-4 py-3 outline-none'
             />
-            {/* {errors.password && (
+            {errors.password && (
               <p className='text-red-500'>{errors.password.message}</p>
-            )} */}
+            )}
           </div>
 
           <div>
@@ -128,17 +130,17 @@ function Register() {
               name='repeatpassword'
               type='password'
               placeholder='Confirm password'
-              value={cpassword}
-              onChange={(e) => setCPassword(e.target.value)}
-            //   {...register('repeatpassword', {
-            //     validate: (value) =>
-            //       value === password.current || 'Your passwords does not match',
-            //   })}
+              // value={cpassword}
+              // onChange={(e) => setCPassword(e.target.value)}
+              {...register('repeatpassword', {
+                validate: (value) =>
+                  value === password.current || 'Your passwords does not match',
+              })}
               className='text-lime-600 w-full rounded-md px-4 py-3 outline-none'
             />
-            {/* {errors.repeatpassword && (
+            {errors.repeatpassword && (
               <p className='text-red-500'>{errors.repeatpassword.message}</p>
-            )} */}
+            )}
           </div>
 
           <div className='py-4'>
@@ -158,7 +160,7 @@ function Register() {
             <div className='h-0.5 w-full bg-gray-600'></div>
           </div>
 
-          <div className='flex items-center justify-evenly'>
+          <div className='flex items-top justify-evenly'>
             <div className='flex flex-col items-center'>
               <p className='text-center text-sm text-gray-300'>
                 Registered already?

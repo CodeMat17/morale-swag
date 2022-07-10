@@ -30,18 +30,27 @@ function SignIn() {
     });
     if (result.ok) {
       setSubmitting(false);
-      toast.success('You have successfully signed in.');
+      toast.success('You have successfully signed in.', {
+        duration: 5000,
+        position: 'top-center',
+      });
       router.replace('/');
       reset();
     }
     if (!result.ok) {
       setSubmitting(false);
-      toast.error('Invalid Credentials!');
+      toast.error('Invalid Credentials!', {
+        duration: 5000,
+        position: 'top-center',
+      });
     }
   };
 
   const popToast = () => {
-    toast.success('Coming Soon!!!');
+    toast.success('Coming Soon!!!', {
+      duration: 5000,
+      position: 'top-center',
+    });
   };
 
   return (
@@ -110,7 +119,7 @@ function SignIn() {
             <div className='h-0.5 w-full bg-gray-600'></div>
           </div>
 
-          <div className='flex items-center justify-between'>
+          <div className='flex items-top justify-between'>
             <div className='flex flex-col items-center'>
               <p className='text-center text-sm text-gray-300'>Are you new?</p>
               <button
