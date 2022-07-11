@@ -22,18 +22,15 @@ function Register() {
   const [isSubmitting, setSubmitting] = useState(false);
 
   const onSubmit = async (values) => {
-    // e.preventDefault();
 
     const { username, email, password } = values;
 
     setSubmitting(true);
     await axios
       .post(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/auth/local/register`, {
-        // data: {
         username: username,
         email: email,
         password: password,
-        // },
       })
       .then((response) => {
         setSubmitting(false);
