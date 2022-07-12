@@ -1,3 +1,5 @@
+import { faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -22,7 +24,6 @@ function Register() {
   const [isSubmitting, setSubmitting] = useState(false);
 
   const onSubmit = async (values) => {
-
     const { username, email, password } = values;
 
     setSubmitting(true);
@@ -36,7 +37,7 @@ function Register() {
         setSubmitting(false);
         toast.success('You have successfully registered! You can login now.', {
           duration: 5000,
-          position: 'top-center'
+          position: 'top-center',
         });
         router.push('/auth/sign-in');
         // reset();
@@ -45,7 +46,7 @@ function Register() {
         setSubmitting(false);
         toast.error(error.response.data.error.message, {
           duration: 5000,
-          position: 'top-center'
+          position: 'top-center',
         });
       });
   };
@@ -145,9 +146,22 @@ function Register() {
               type='submit'
               disabled={isSubmitting}
               className={`text-white ${
-                isSubmitting ? 'bg-lime-800' : 'bg-lime-500'
+                isSubmitting ? 'bg-lime-800 cursor-not-allowed' : 'bg-lime-500'
               }  py-3 rounded-md text-lg w-full font-semibold tracking-wider`}>
-              {isSubmitting ? 'PLEASE WAIT...' : 'REGISTER'}
+              <div className='flex items-center justify-center space-x-6'>
+                <p
+                  className={`text-sm font-semibold tracking-wider ${
+                    isSubmitting && 'text-gray-400'
+                  }`}>
+                  {isSubmitting ? 'PLEASE WAIT...' : 'REGISTER'}
+                </p>
+                {isSubmitting && (
+                  <FontAwesomeIcon
+                    icon={faSpinner}
+                    className='w-4 h-4 animate-spin text-lime-500'
+                  />
+                )}
+              </div>{' '}
             </button>
           </div>
 

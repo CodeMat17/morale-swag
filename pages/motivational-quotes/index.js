@@ -57,10 +57,10 @@ function MotivationalPage() {
             </div>
           </div>
         ) : (
-          <div className='text-center px-8 py-12'>
+          <div className='text-center px-8 py-12 max-w-md mx-auto'>
             <div className='bg-red-100 rounded-md py-8 text-red-500'>
-              <h1 className='text-center font-semibold text-lg tracking-wider'>
-                You have not subcribed OR your subscription for this service has expired.
+              <h1 className='text-center tracking-wider px-4'>
+                You have not subscribed OR your subscription for this service has expired.
               </h1>
 
               <SubscribeButton />

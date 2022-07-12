@@ -17,8 +17,14 @@ export default function Home() {
   const { data: session } = useSession();
   const router = useRouter();
 
-  const { setUserEmail, setUserName, setSubscription, setExpiration, userEmail, userName } =
-    useContext(AuthContext);
+  const {
+    setUserEmail,
+    setUserName,
+    setSubscription,
+    setExpiration,
+    userEmail,
+    userName,
+  } = useContext(AuthContext);
 
   useEffect(() => {
     if (session == null) return;
@@ -38,7 +44,7 @@ export default function Home() {
         setUserEmail(userData.data.email);
         setUserName(userData.data.username);
         setSubscription(userData.data.subscription);
-        setExpiration(userData.data.expire)
+        setExpiration(userData.data.expire);
       }
       fetchUser();
     }
@@ -54,28 +60,31 @@ export default function Home() {
 
       <NavHeader />
 
-      <div className='text-white'>
-        <div className='px-8'>
-          <p className='pt-6 font-semibold text-xl tracking-widest text-gray-300'>
-            Get inspired!
-          </p>
-          <h1 className='font-bold text-3xl max-w-xs tracking-wider'>
-            Enchich your knowledge and be wise.
-          </h1>
-        </div>
-
-        <div className='relative my- w-full h-[400px]'>
-          <Image
-            src='/hero.svg'
-            alt='Motivational quotes'
-            priority
-            layout='fill'
-            objectFit='contain'
-          />
+      <div className='text-white max-w-4xl mx-auto'>
+        <div className='sm:flex sm:mt-8'>
+          <div className='px-8 md:pt-12'>
+            <p className='pt-6 font-semibold text-xl sm:text-2xl tracking-widest text-gray-300'>
+              Get inspired!
+            </p>
+            <h1 className='font-bold text-3xl md:text-5xl max-w-xs tracking-wider'>
+              Enchich your knowledge and be wise.
+            </h1>
+          </div>
+          <div className='md:absolute right-0 md:right-10 md:top-36 lg:top-20 lg:right-36'>
+            <div className='relative my- w-full h-[400px] sm:w-[200px] sm:h-[200px] md:h-[300px] md:w-[400px] lg:w-[450px] lg:h-[400px]'>
+              <Image
+                src='/hero.svg'
+                alt='Motivational quotes'
+                priority
+                layout='fill'
+                objectFit='contain'
+              />
+            </div>
+          </div>
         </div>
 
         {session ? (
-          <div className='p-8'>
+          <div className='p-8 sm:max-w-md sm:pt-16'>
             <div className='space-y-4'>
               <button
                 onClick={() => router.push('/advice')}
@@ -113,7 +122,7 @@ export default function Home() {
         ) : (
           <div className='p-8'>
             <button
-              className='shadow-2xl outline-none hover:bg-lime-700 bg-lime-800 text-lime-500 px-6 py-3 font-semibold tracking-widest rounded-full'
+              className='shadow-xl shadow-gray-500 hover:shadow-gray-600 outline-none hover:bg-lime-700 transition-colors duration-500 bg-lime-800 text-lime-500 px-6 py-3 font-semibold tracking-widest rounded-full'
               onClick={() => router.push('/auth/sign-in')}>
               SIGN IN
             </button>

@@ -1,3 +1,5 @@
+import { faHurricane, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { signIn } from 'next-auth/react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
@@ -107,9 +109,22 @@ function SignIn() {
               type='submit'
               disabled={isSubmitting}
               className={`text-white ${
-                isSubmitting ? 'bg-lime-800' : 'bg-lime-500'
+                isSubmitting ? 'bg-lime-800 cursor-not-allowed' : 'bg-lime-500'
               }  py-3 rounded-md text-lg w-full font-semibold tracking-wider`}>
-              {isSubmitting ? 'PLEASE WAIT...' : 'SIGN IN'}
+              <div className='flex items-center justify-center space-x-6'>
+                <p
+                  className={`text-sm font-semibold tracking-wider ${
+                    isSubmitting && 'text-gray-400'
+                  }`}>
+                  {isSubmitting ? 'PLEASE WAIT...' : 'SIGN IN'}
+                </p>
+                {isSubmitting && (
+                  <FontAwesomeIcon
+                    icon={faSpinner}
+                    className='w-4 h-4 animate-spin text-lime-500'
+                  />
+                )}
+              </div>
             </button>
           </div>
 
@@ -124,7 +139,8 @@ function SignIn() {
               <p className='text-center text-sm text-gray-300'>Are you new?</p>
               <button
                 onClick={() => router.push('/auth/register')}
-                className='mt-3 px-4 py-3 text-lime-500 bg-lime-800 rounded-full tracking-wider'>
+                // className='  outline-none bg-lime-800 text-lime-500 px-6 py-3 font-semibold tracking-widest rounded-full'
+                className='shadow-xl shadow-gray-500 hover:shadow-gray-600  hover:bg-lime-700 transition-colors duration-500 mt-3 px-4 py-3 text-lime-500 bg-lime-800 rounded-full tracking-wider'>
                 Register
               </button>
             </div>
