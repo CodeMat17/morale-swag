@@ -1,12 +1,10 @@
-import axios from 'axios';
 import { createContext, useState } from 'react';
-import {linstance} from '../lib/api'
 
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
-  const [userEmail, setUserEmail] = useState('');
-  const [userName, setUserName] = useState('');
+  const [userEmail, setUserEmail] = useState('myyyemail@cod.com');
+  const [userName, setUserName] = useState('Matthew');
   const [userJWT, setUserJWT] = useState(null);
   const [userSubscription, setSubscription] = useState(false);
   const [expiration, setExpiration] = useState(false);
