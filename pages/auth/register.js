@@ -45,7 +45,7 @@ function Register() {
       .catch((error) => {
         setSubmitting(false);
         toast.error(error.response.data.error.message, {
-          duration: 5000,
+          duration: 4000,
           position: 'top-center',
         });
       });

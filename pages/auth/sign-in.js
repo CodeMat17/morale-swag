@@ -33,7 +33,7 @@ function SignIn() {
     if (result.ok) {
       setSubmitting(false);
       toast.success('You have successfully signed in.', {
-        duration: 5000,
+        duration: 4000,
         position: 'top-center',
       });
       router.replace('/');
