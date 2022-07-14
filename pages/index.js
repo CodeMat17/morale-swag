@@ -53,7 +53,7 @@ export default function Home() {
   return (
     <div className='min-h-screen pb-8'>
       <Head>
-        <title>Morale Swag | Home</title>
+        <title>Morale Swag | Quotes</title>
         <meta name='description' content='Morale Swag' />
         <link rel='icon' href='/favicon.ico' />
       </Head>

@@ -1,4 +1,5 @@
 import { getSession } from 'next-auth/react';
+import Head from 'next/head';
 import { useContext, useState } from 'react';
 import Card from '../../components/Card';
 import NavHeader from '../../components/nav/NavHeader';
@@ -36,6 +37,12 @@ function MotivationalPage() {
 
   return (
     <div className='flex flex-col justify-center'>
+      <Head>
+        <title>Morale Swag | Proverbs</title>
+        <meta name='description' content='Morale Swag' />
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
+
       <NavHeader />
 
       {userSubscription === true ? (

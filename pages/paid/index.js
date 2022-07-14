@@ -4,6 +4,7 @@ import { getSession } from 'next-auth/react';
 import emailjs from '@emailjs/browser';
 import { useRef, useState } from 'react';
 import toast from 'react-hot-toast';
+import Head from 'next/head';
 
 function Paid() {
   const [name, setName] = useState('');
@@ -39,6 +40,11 @@ function Paid() {
 
   return (
     <div className='px-8'>
+      <Head>
+        <title>Morale Swag | Payment</title>
+        <meta name='description' content='Morale Swag' />
+        <link rel='icon' href='/favicon.ico' />
+      </Head>
       <div className='max-w-sm mx-auto text-center py-16'>
         <FontAwesomeIcon
           icon={faSquareCheck}
