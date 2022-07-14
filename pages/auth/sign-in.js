@@ -140,7 +140,7 @@ function SignIn() {
               <button
                 onClick={() => router.push('/auth/register')}
                 // className='  outline-none bg-lime-800 text-lime-500 px-6 py-3 font-semibold tracking-widest rounded-full'
-                className='shadow-xl shadow-gray-500 hover:shadow-gray-600  hover:bg-lime-700 transition-colors duration-500 mt-3 px-4 py-3 text-lime-500 bg-lime-800 rounded-full tracking-wider'>
+                className='shadow-lg shadow-gray-500 hover:shadow-gray-600  hover:bg-lime-700 transition-colors duration-500 mt-3 px-4 py-3 text-lime-500 bg-lime-800 rounded-full tracking-wider'>
                 Register
               </button>
             </div>

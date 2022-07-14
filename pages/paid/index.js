@@ -1,6 +1,6 @@
 import { faSquareCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { getSession } from 'next-auth/react';
+import { getSession } from 'next-auth/react';
 import emailjs from '@emailjs/browser';
 import { useRef, useState } from 'react';
 import toast from 'react-hot-toast';
@@ -92,18 +92,18 @@ function Paid() {
 
 export default Paid;
 
-// export async function getServerSideProps(ctx) {
-//   const session = await getSession(ctx);
-//   // Check if session exists or not, if not, redirect
-//   if (session == null) {
-//     return {
-//       redirect: {
-//         destination: '/auth/sign-in',
-//         permanent: true,
-//       },
-//     };
-//   }
-//   return {
-//     props: {},
-//   };
-// }
+export async function getServerSideProps(ctx) {
+  const session = await getSession(ctx);
+  // Check if session exists or not, if not, redirect
+  if (session == null) {
+    return {
+      redirect: {
+        destination: '/auth/sign-in',
+        permanent: true,
+      },
+    };
+  }
+  return {
+    props: {},
+  };
+}

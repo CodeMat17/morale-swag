@@ -122,7 +122,7 @@ export default function Home() {
         ) : (
           <div className='p-8'>
             <button
-              className='shadow-xl shadow-gray-500 hover:shadow-gray-600 outline-none hover:bg-lime-700 transition-colors duration-500 bg-lime-800 text-lime-500 px-6 py-3 font-semibold tracking-widest rounded-full'
+              className='shadow-lg shadow-gray-500 hover:shadow-gray-600 outline-none hover:bg-lime-700 transition-colors duration-500 bg-lime-800 text-lime-500 px-6 py-3 font-semibold tracking-widest rounded-full'
               onClick={() => router.push('/auth/sign-in')}>
               SIGN IN
             </button>
