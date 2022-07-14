@@ -178,7 +178,7 @@ function Register() {
               </p>
               <button
                 onClick={() => router.push('/auth/sign-in')}
-                className='shadow-lg shadow-gray-400 hover:shadow-gray-800 mt-3 px-4 py-3 text-lime-500 bg-lime-800 hover:bg-lime-700 rounded-full tracking-wider'>
+                className='shadow-lg shadow-gray-500 hover:shadow-gray-800 mt-3 px-4 py-3 text-lime-500 bg-lime-800 hover:bg-lime-700 rounded-full tracking-wider'>
                 Sign in
               </button>
             </div>
