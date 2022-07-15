@@ -2,7 +2,7 @@ import React from 'react';
 
 function Footer() {
   return (
-    <div className='sticky bottom-0 z-50 p-4 flex flex-col text-center'>
+    <div className='bottom-0 p-4 flex flex-col text-center'>
       <h3 className='text-sm text-white'>
         Morale Swag. &copy; All rights reserved.
       </h3>

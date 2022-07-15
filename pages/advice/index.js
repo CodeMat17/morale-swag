@@ -23,7 +23,7 @@ function AdvicePage() {
     setLoading(false);
   };
   return (
-    <div className=' flex flex-col justify-center'>
+    <div className='min-h-screen flex flex-col justify-center'>
       <NavHeader />
 
       <h1 className='text-center pt-12 text-lime-500 font-bold text-2xl md:text-3xl tracking-wider'>

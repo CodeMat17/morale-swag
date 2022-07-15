@@ -40,7 +40,7 @@ function MotivationalPage() {
   };
 
   return (
-    <div className='flex flex-col justify-center'>
+    <div className='min-h-screen flex flex-col justify-center'>
       <Head>
         <title>Morale Swag | Motivational Quotes</title>
         <meta name='description' content='Morale Swag' />
