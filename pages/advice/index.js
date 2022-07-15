@@ -26,7 +26,7 @@ function AdvicePage() {
     <div className=' flex flex-col justify-center'>
       <NavHeader />
 
-      <h1 className='text-center pt-12 text-emerald-200 font-bold text-2xl md:text-3xl tracking-wider'>
+      <h1 className='text-center pt-12 text-lime-500 font-bold text-2xl md:text-3xl tracking-wider'>
         Take an advice
       </h1>
       <div className='flex justify-center'>

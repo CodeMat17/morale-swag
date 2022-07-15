@@ -61,8 +61,8 @@ export default function Home() {
       <NavHeader />
 
       <div className='text-white max-w-4xl mx-auto'>
-        <div className='sm:flex sm:mt-8'>
-          <div className='px-8 md:pt-12'>
+        <div className='sm:flex sm:mt-8 sm:items-center'>
+          <div className='px-8'>
             <p className='pt-6 font-semibold text-xl sm:text-2xl tracking-widest text-gray-300'>
               Get inspired!
             </p>
@@ -70,7 +70,7 @@ export default function Home() {
               Enchich your knowledge and be wise.
             </h1>
           </div>
-          <div className='md:absolute right-0 md:right-10 md:top-36 lg:top-20 lg:right-36'>
+          <div className='md:absolute right-0 md:right-10 md:top-36 lg:top-38 lg:right-36'>
             <div className='relative my- w-full h-[400px] sm:w-[200px] sm:h-[200px] md:h-[300px] md:w-[400px] lg:w-[450px] lg:h-[400px]'>
               <Image
                 src='/hero.svg'
