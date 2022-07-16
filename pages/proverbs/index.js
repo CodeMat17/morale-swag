@@ -36,7 +36,7 @@ function MotivationalPage() {
   };
 
   return (
-    <div className='min-h-screen flex flex-col justify-center'>
+    <div className='min-h-screen'>
       <Head>
         <title>Morale Swag | Proverbs</title>
         <meta name='description' content='Morale Swag' />
@@ -45,32 +45,34 @@ function MotivationalPage() {
 
       <NavHeader />
 
-      {userSubscription === true ? (
-        <div>
-          <h1 className='text-center pt-12 text-emerald-200 font-bold text-2xl md:text-3xl tracking-wider'>
-            African Proverbs
-          </h1>
-          <div className='flex justify-center'>
-            <Card
-              isLoading={isLoading}
-              quoteAuthor={quoteAuthor}
-              quoteText={quoteText}
-              handleQuotes={handleQuotes}
-            />
-          </div>
-        </div>
-      ) : (
-        <div className='text-center px-8 py-12'>
-          <div className='bg-red-100 rounded-md py-8 text-red-500 max-w-md mx-auto'>
-            <h1 className='text-center tracking-wider px-4'>
-              You have not subscribed OR your subscription for this service has
-              expired.
+      <div className='flex flex-col justify-center'>
+        {userSubscription === true ? (
+          <div>
+            <h1 className='text-center pt-12 text-lime-500 font-bold text-2xl md:text-3xl tracking-wider'>
+              African Proverbs
             </h1>
-
-            <SubscribeButton />
+            <div className='flex justify-center'>
+              <Card
+                isLoading={isLoading}
+                quoteAuthor={quoteAuthor}
+                quoteText={quoteText}
+                handleQuotes={handleQuotes}
+              />
+            </div>
           </div>
-        </div>
-      )}
+        ) : (
+          <div className='text-center px-8 py-12'>
+            <div className='bg-red-100 rounded-md py-8 text-red-500 max-w-md mx-auto'>
+              <h1 className='text-center tracking-wider px-4'>
+                You have not subscribed OR your subscription for this service
+                has expired.
+              </h1>
+
+              <SubscribeButton />
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

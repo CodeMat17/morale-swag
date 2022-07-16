@@ -23,18 +23,19 @@ function AdvicePage() {
     setLoading(false);
   };
   return (
-    <div className='min-h-screen flex flex-col justify-center'>
+    <div className='min-h-screen'>
       <NavHeader />
-
-      <h1 className='text-center pt-12 text-lime-500 font-bold text-2xl md:text-3xl tracking-wider'>
-        Take an advice
-      </h1>
-      <div className='flex justify-center'>
-        <Card
-          quoteText={quoteText}
-          handleQuotes={handleQuotes}
-          isLoading={isLoading}
-        />
+      <div className='flex flex-col items-center ustify-center'>
+        <h1 className='text-center pt-12 text-lime-500 font-bold text-2xl md:text-3xl tracking-wider'>
+          Take an advice
+        </h1>
+        <div className='flex justify-center'>
+          <Card
+            quoteText={quoteText}
+            handleQuotes={handleQuotes}
+            isLoading={isLoading}
+          />
+        </div>
       </div>
     </div>
   );

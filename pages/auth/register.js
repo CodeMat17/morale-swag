@@ -56,7 +56,7 @@ function Register() {
   };
 
   return (
-    <div>
+    <div className='min-h-screen'>
       <NavHeader />
 
       <div className='p-8 max-w-sm mx-auto'>

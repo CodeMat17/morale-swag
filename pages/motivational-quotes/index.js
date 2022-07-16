@@ -40,7 +40,7 @@ function MotivationalPage() {
   };
 
   return (
-    <div className='min-h-screen flex flex-col justify-center'>
+    <div className='min-h-screen'>
       <Head>
         <title>Morale Swag | Motivational Quotes</title>
         <meta name='description' content='Morale Swag' />
@@ -48,7 +48,7 @@ function MotivationalPage() {
       </Head>
 
       <NavHeader />
-      <div>
+      <div className='flex flex-col justify-center'>
         {userSubscription === true ? (
           <div>
             <h1 className='text-center pt-12 text-lime-500 font-bold text-2xl md:text-3xl tracking-wider'>

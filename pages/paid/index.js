@@ -39,7 +39,7 @@ function Paid() {
   };
 
   return (
-    <div className='px-8'>
+    <div className='min-h-screen px-8'>
       <Head>
         <title>Morale Swag | Payment</title>
         <meta name='description' content='Morale Swag' />
