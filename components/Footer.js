@@ -4,7 +4,7 @@ function Footer() {
   return (
     <div className='bottom-0 p-4 flex flex-col text-center'>
       <h3 className='text-sm text-white'>
-        Morale Swag. &copy; All rights reserved.
+        Morale Swag. <span className='text-red-500'>&copy;</span>  All rights reserved.
       </h3>
       <p className='text-gray-400 text-sm'>
         Contact:{' '}
